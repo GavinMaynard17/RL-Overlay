@@ -29,10 +29,10 @@
   {/if}
 
   <!-- StatFeed -->
-  {#if $statfeedEvent}
+  <!-- {#if $statfeedEvent}
     <p>{$statfeedEvent.event_name}</p>
     <p>{$statfeedEvent.main_target.name}</p>
-  {/if}
+  {/if} -->
 
   <!-- clock -->
   {#if $isOT}
