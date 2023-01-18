@@ -26,11 +26,7 @@
     {#each players as player}
       {#if player.team == 1}
         <li>{player.name}</li>
-
-        {#if $statfeedEvent?.main_target.name == player.name}
-          <li>{$statfeedEvent.event_name}</li>
-        {/if}
-
+        <li><StatFeed playerName={player.name} /></li>
         <li>{player.boost}</li>
         <hr />
       {/if}
