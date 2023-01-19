@@ -5,13 +5,14 @@
 
   export let playerList;
 
-  $: players = playerList;
+  $: playerList = playerList;
+
 </script>
 
 <div class="playerelement">
   <ul class="blue">
     <h1>left side</h1>
-    {#each players as player}
+    {#each playerList as player}
       {#if player.team == 0}
         <li>{player.name}</li>
         <li><StatFeed playerName={player.name} /></li>
@@ -23,7 +24,7 @@
 
   <ul class="orange">
     <h1>right side</h1>
-    {#each players as player}
+    {#each playerList as player}
       {#if player.team == 1}
         <li>{player.name}</li>
         <li><StatFeed playerName={player.name} /></li>

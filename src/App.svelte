@@ -3,6 +3,7 @@
   import Players from "./lib/Players.svelte";
   import Spectating from "./lib/Spectating.svelte";
   import Score from "./lib/Score.svelte";
+  // import StatList from "./lib/StatList";
   import {
     updateTime,
     targetPlayer,
@@ -24,15 +25,10 @@
 </head>
 
 <body>
+  <!-- score -->
   {#if $updateState}
     <Score currentState={$updateState} />
   {/if}
-
-  <!-- StatFeed -->
-  <!-- {#if $statfeedEvent}
-    <p>{$statfeedEvent.event_name}</p>
-    <p>{$statfeedEvent.main_target.name}</p>
-  {/if} -->
 
   <!-- clock -->
   {#if $isOT}
