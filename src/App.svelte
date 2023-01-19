@@ -3,6 +3,8 @@
   import Players from "./lib/Players.svelte";
   import Spectating from "./lib/Spectating.svelte";
   import Score from "./lib/Score.svelte";
+  import OverTime from "./lib/OverTime.svelte";
+  import Replay from "./lib/Replay.svelte";
   // import StatList from "./lib/StatList";
   import {
     updateTime,
@@ -31,15 +33,15 @@
   {/if}
 
   <!-- clock -->
-  {#if $isOT}
+  <!-- {#if $isOT}
     <p class="OT">+</p>
-  {/if}
-  <Time time={$updateTime} />
+  {/if} -->
+  <Time time={$updateTime} isOT={$isOT} />
 
   <!-- player list -->
-  {#if $allPlayers}
-    <Players playerList={$allPlayers} />
-  {/if}
+  <!-- {#if $allPlayers} -->
+  <Players playerList={$allPlayers} />
+  <!-- {/if} -->
 
   <!-- Spectating player -->
   {#if $targetPlayer?.name}
@@ -47,12 +49,11 @@
   {/if}
 
   <!-- overtime indicator -->
-  {#if $isOT}
+  <OverTime isOT={$isOT} />
+  <!-- {#if $isOT}
     <p class="overtime">OVERTIME</p>
-  {/if}
+  {/if} -->
 
   <!-- replay indicator -->
-  {#if $isReplay}
-    <p class="replay">REPLAY</p>
-  {/if}
+  <Replay isReplay={$isReplay} />
 </body>
