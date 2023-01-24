@@ -1,10 +1,12 @@
 <script>
-  export let currentState;
+  import { blueTeamStore, orangeTeamStore } from "./stores";
 
-  $: blueTeam = currentState.game.teams[0].name;
-  $: blueScore = currentState.game.teams[0].score;
-  $: orangeTeam = currentState.game.teams[1].name;
-  $: orangeScore = currentState.game.teams[1].score;
+  // export let currentState;
+
+  $: blueTeam = $blueTeamStore.name;
+  $: blueScore = $blueTeamStore.score;
+  $: orangeTeam = $orangeTeamStore.name;
+  $: orangeScore = $orangeTeamStore.score;
 </script>
 
 <div class="scorebug">

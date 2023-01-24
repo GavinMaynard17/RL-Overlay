@@ -1,8 +1,9 @@
 <script>
-  export let time = 0;
-  export let isOT;
-  let min = Math.trunc(time / 60);
-  let sec = prependZero(time % 60);
+  import { timeStore, overtimeStore } from "./stores";
+
+  $: time = $timeStore;
+  $: isOT = $overtimeStore;
+
   $: min = Math.trunc(time / 60);
   $: sec = prependZero(time % 60);
 

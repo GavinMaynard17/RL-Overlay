@@ -2,10 +2,10 @@
   import { listen } from "svelte/internal";
   import { statfeedEvent } from "./processor.js";
   import StatFeed from "./StatFeed.svelte";
+  import { playersStore } from "./stores.js";
 
-  export let playerList;
-
-  $: playerList = playerList;
+  $: playerList = $playersStore;
+  $: console.log(playerList);
 </script>
 
 <div class="playerelement">
@@ -15,7 +15,7 @@
       {#each playerList as player}
         {#if player.team == 0}
           <li>{player.name}</li>
-          <!-- <li><StatFeed playerName={player.name} /></li> -->
+          <li><StatFeed playerName={player.name} /></li>
           <li>{player.boost}</li>
           <hr />
         {/if}
@@ -27,7 +27,7 @@
       {#each playerList as player}
         {#if player.team == 1}
           <li>{player.name}</li>
-          <!-- <li><StatFeed playerName={player.name} /></li> -->
+          <li><StatFeed playerName={player.name} /></li>
           <li>{player.boost}</li>
           <hr />
         {/if}

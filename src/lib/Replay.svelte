@@ -1,9 +1,12 @@
 <script>
-  export let isReplay;
+  import { replayStore } from "./stores";
+
+  $: isReplay = $replayStore;
+  $: console.log(isReplay);
 </script>
 
 <div>
   {#if isReplay}
-    <p>REPLAY</p>
+    <p class="replay">REPLAY</p>
   {/if}
 </div>

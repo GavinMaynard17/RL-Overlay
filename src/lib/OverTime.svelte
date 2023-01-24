@@ -1,5 +1,7 @@
 <script>
-  export let isOT;
+  import { overtimeStore } from "./stores";
+
+  $: isOT = $overtimeStore;
 </script>
 
 <div>
