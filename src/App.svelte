@@ -5,19 +5,11 @@
   import Score from "./lib/Score.svelte";
   import OverTime from "./lib/OverTime.svelte";
   import Replay from "./lib/Replay.svelte";
-  import {
-    updateTime,
-    targetPlayer,
-    isOT,
-    isReplay,
-    updateState,
-    processor,
-    allPlayers,
-    statfeedEvent,
-  } from "./lib/processor";
+  import StatFeed from "./lib/StatFeed.svelte";
+  import { processor } from "./lib/processor";
   import { socketMessageStore } from "./lib/socket";
 
-  $: console.log($socketMessageStore);
+  // $: console.log($socketMessageStore);
   $: processor($socketMessageStore);
 </script>
 
@@ -39,20 +31,22 @@
   {/if} -->
   <Time />
 
+  <StatFeed />
+
   <!-- player list -->
   <!-- {#if $allPlayers} -->
-  <Players />
+  <!-- <Players /> -->
   <!-- {/if} -->
 
   <!-- Spectating player -->
-  <Spectating />
+  <!-- <Spectating /> -->
 
   <!-- overtime indicator -->
-  <OverTime />
+  <!-- <OverTime /> -->
   <!-- {#if $isOT}
     <p class="overtime">OVERTIME</p>
   {/if} -->
 
   <!-- replay indicator -->
-  <Replay />
+  <!-- <Replay /> -->
 </body>

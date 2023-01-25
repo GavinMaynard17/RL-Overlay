@@ -1,24 +1,30 @@
 import { statFeedStore } from "./stores";
 
 export let events = []
+let currentStat = statFeedStore
 
-const uID = () =>
+
+console.log(currentStat)
+
+const uID = () => 
     String(
         Date.now().toString(4) +
         Math.random().toString(4)
     ).replace(/\./g, '')
+    
 
 
-
+handleStatFeed(currentStat);
 export default function validStatEvent(update) {
 
 }
 
-export function handleStatFeed(update) {
-    addStatFeedEvent(update);
+export function handleStatFeed(currentStat) {
+    console.log(currentStat)
+    addStatFeedEvent(currentStat);
 
-    function addStatFeedEvent(update) {
-        let newStat = { ...update };
+    function addStatFeedEvent(currentStat) {
+        let newStat = { ...currentStat };
         newStat.id = uID;
         newStat.disappearing = false;
         setTimeout(() => {

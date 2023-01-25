@@ -2,7 +2,6 @@
   import { replayStore } from "./stores";
 
   $: isReplay = $replayStore;
-  $: console.log(isReplay);
 </script>
 
 <div>
