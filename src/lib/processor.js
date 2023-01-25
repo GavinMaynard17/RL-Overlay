@@ -1,7 +1,6 @@
 import * as R from 'ramda'
 import { socketMessageStore } from "./socket";
 import { blueTeamStore, orangeTeamStore, overtimeStore, playersStore, replayStore, statEventStore, targetPlayerStore, timeStore } from './stores';
-import events  from "./StatFeed.svelte";
 
 export const processor = (socketMessageStore) => {
     R.cond([
@@ -22,7 +21,6 @@ const onUpdateState = ({ data }) => {
 
 const onStatfeedEvent = ({ data }) => {
     statEventStore.set(data)
-    console.log(data)
     // R.cond({
     //     [(data) => data.type === "Goal", onGoal],
     // }) use this later

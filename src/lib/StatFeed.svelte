@@ -1,71 +1,58 @@
 <script>
- import { statEventStore, statFeedStore } from "./stores";
-
-export let events = []
-$: currentStat = $statEventStore
-
-$: console.log(currentStat)
+  import { writable } from "svelte/store";
+  import { statEventStore } from "./stores";
+  const events = writable([]);
 
 
-// function uID() {
-// return Math.floor(Math.random() * Date.now())
-// }
+  
 
+  $: handleStatFeed($statEventStore);
+  $: console.log("current stat is", $statEventStore)
 
+  function removeStatFeedEvent(id) {
+    let stat = $events.find((event) => event.id === id);
+    console.log("removing", stat);
+    $events = $events.filter((event) => event.id !== id);
+  }
 
-// export default function validStatEvent(update) {
+  function startDisappearing(id) {
+    console.log($events)
+    $events = [
+      ...$events.filter((event) => event.id !== id),
+      {
+        ...$events.find((event) => event.id === id),
+        disappearing: true,
+      },
+    ];
+  }
 
-// }
+  function handleStatFeed(currentStat) {
+    
+    let id = crypto.randomUUID();
+    $events = [
+      ...$events,
+      {
+        ...currentStat,
+        id,
+        disappearing: false,
+        time: Date.now(),
+      },
+    ];
 
-$: handleStatFeed(currentStat);
-export function handleStatFeed(currentStat) {
-    console.log(currentStat.event_name)
-    addStatFeedEvent(currentStat);
+    setTimeout(() => {
+      startDisappearing(id);
+    }, 3000);
 
-    function addStatFeedEvent(currentStat) {
-        let newStat = { ...currentStat };
-        newStat.id = Math.floor(Math.random() * Date.now())
-        newStat.disappearing = false;
-        setTimeout(() => {
-            newStat.disappearing = true;
-        }, 3000);
-        events.push(newStat);
-        console.log("EVENT PUSHED", currentStat, Object.values(events));
-        // store.dispatch(updateStatFeed({ ...events }));
-        statFeedStore.set({ ...events })
-        console.log("STAT FEED UPDATE ADD", currentStat, $statFeedStore);
-        setTimeout(() => {
-            removeStatFeedEvent(newStat);
-        }, 3500);
-        
-        
-    }
-
-    function removeStatFeedEvent(data) {
-        let index = events.map((event) => event.id).indexOf(data.id);
-        events.splice(index, 1);
-        console.log("EVENT DELETED", currentStat, events);
-        // store.dispatch(updateStatFeed({ ...events }));
-        statFeedStore.set({ ...events })
-        console.log("STAT FEED UPDATE DELETE", currentStat, $statFeedStore)
-    }
-}
-  // export let playerName;
-
+    setTimeout(() => {
+      removeStatFeedEvent(id);
+    }, 3500);
+    
+  }
 </script>
 
-<div class="stat">
-  <ul>
-  {#if events.length > 0}
-    {#each events as event}
-      <!-- {#if event.main_target.name == playerName} -->
-        <li>{event.event_name}</li>
-        <hr>
-      <!-- {/if} -->
-    {/each}
-  {/if}
-</ul>
-</div>
+{#each $events.sort((a, b) => a.time - b.time) as event (event.id)}
+  <div>{event?.event_name} - {event.main_target.name}</div>
+{/each}
 
 <style>
 </style>
