@@ -9,7 +9,7 @@
   import { processor } from "./lib/processor";
   import { socketMessageStore } from "./lib/socket";
 
-  // $: console.log($socketMessageStore);
+  $: console.log($socketMessageStore);
   $: processor($socketMessageStore);
 </script>
 
@@ -21,32 +21,23 @@
 
 <body>
   <!-- score -->
-  <!-- {#if $updateState} -->
   <Score />
-  <!-- {/if} -->
 
   <!-- clock -->
-  <!-- {#if $isOT}
-    <p class="OT">+</p>
-  {/if} -->
   <Time />
 
-  <StatFeed />
+  <!-- stat feed (non-player) -->
+  <!-- <StatFeed /> -->
 
   <!-- player list -->
-  <!-- {#if $allPlayers} -->
-  <!-- <Players /> -->
-  <!-- {/if} -->
+  <Players />
 
   <!-- Spectating player -->
-  <!-- <Spectating /> -->
+  <Spectating />
 
   <!-- overtime indicator -->
-  <!-- <OverTime /> -->
-  <!-- {#if $isOT}
-    <p class="overtime">OVERTIME</p>
-  {/if} -->
+  <OverTime />
 
   <!-- replay indicator -->
-  <!-- <Replay /> -->
+  <Replay />
 </body>

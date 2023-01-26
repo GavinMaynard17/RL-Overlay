@@ -1,8 +1,6 @@
 <script>
   import { blueTeamStore, orangeTeamStore } from "./stores";
 
-  // export let currentState;
-
   $: blueTeam = $blueTeamStore.name;
   $: blueScore = $blueTeamStore.score;
   $: orangeTeam = $orangeTeamStore.name;

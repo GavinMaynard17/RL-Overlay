@@ -15,6 +15,7 @@
 
 <div class="clock">
   <div class="time">
+    <!-- add more things for if time is > 10 minutes, will need to move things around -->
     {#if isOT}
       <p>+ {min} : {sec}</p>
     {:else}

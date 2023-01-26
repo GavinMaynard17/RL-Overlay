@@ -1,5 +1,4 @@
 import * as R from 'ramda'
-import { socketMessageStore } from "./socket";
 import { blueTeamStore, orangeTeamStore, overtimeStore, playersStore, replayStore, statEventStore, targetPlayerStore, timeStore } from './stores';
 
 export const processor = (socketMessageStore) => {
@@ -23,6 +22,6 @@ const onStatfeedEvent = ({ data }) => {
     statEventStore.set(data)
     // R.cond({
     //     [(data) => data.type === "Goal", onGoal],
-    // }) use this later
+    // }) use this later for specific events
 }
 

@@ -1,19 +1,19 @@
 <script>
-    export let percent = 80;
+  export let percent = 100;
 </script>
 
 <div class="boost bg">
-    <div class="boost" style="width: {percent}%" />
+  <div class="boost" style="width: {percent}%" />
 </div>
-  
+
 <style>
-    .boost {
-      position: relative;
-      height: 50px;
-      background-color: pink;
-    }
-    .bg {
-      width: 300px;
-      background-color: #000;
-    }
+  .boost {
+    position: relative;
+    height: 50px;
+    background-color: white;
+  }
+  .bg {
+    width: 300px;
+    background-color: #000;
+  }
 </style>

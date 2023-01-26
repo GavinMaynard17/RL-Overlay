@@ -5,7 +5,7 @@
   $: target = $targetPlayerStore;
 </script>
 
-{#if $targetPlayerStore}
+{#if $targetPlayerStore}<!-- add to remove when replay -->
   <div class="player">
     <p class="player">Spectating: {target.name}</p>
     <p class="score">Score: {target.score}</p>
@@ -17,3 +17,7 @@
     <Boost percent={target.boost} />
   </div>
 {/if}
+
+<style>
+  /* playercard and boost and stuff, make different divs */
+</style>

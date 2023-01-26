@@ -1,5 +1,5 @@
 <script>
-  import { listen } from "svelte/internal";
+  import { listen } from "svelte/internal"; //test if removing is possible
   import StatFeed from "./StatFeed.svelte";
   import { playersStore } from "./stores.js";
 
@@ -7,13 +7,14 @@
 </script>
 
 <div class="playerelement">
-  {#if playerList}
+  {#if playerList}<!-- test to remove this and add if replay -->
+
     <ul class="blue">
       <h1>left side</h1>
       {#each playerList as player}
         {#if player.team == 0}
           <li>{player.name}</li>
-          <!-- <li><StatFeed playerName={player.name} /></li> -->
+          <li><StatFeed playerName={player.name} /></li>
           <li>{player.boost}</li>
           <hr />
         {/if}
@@ -25,7 +26,7 @@
       {#each playerList as player}
         {#if player.team == 1}
           <li>{player.name}</li>
-          <!-- <li><StatFeed playerName={player.name} /></li> -->
+          <li><StatFeed playerName={player.name} /></li>
           <li>{player.boost}</li>
           <hr />
         {/if}
@@ -33,3 +34,13 @@
     </ul>
   {/if}
 </div>
+
+<style>
+  /* .orange{
+    right side
+  }   */
+
+  /* .blue{
+    left side
+  } */
+</style>

@@ -6,12 +6,12 @@ let currentStat = statFeedStore
 
 console.log(currentStat)
 
-const uID = () => 
+const uID = () =>
     String(
         Date.now().toString(4) +
         Math.random().toString(4)
     ).replace(/\./g, '')
-    
+
 
 
 handleStatFeed(currentStat);
@@ -49,5 +49,5 @@ export function handleStatFeed(currentStat) {
 
 
 
-// THIS HURTS MY HEAD
-// "STAT CHIP COMPONENT"
+
+// try to move alot of statfeed.svelte to here?
