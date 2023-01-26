@@ -10,7 +10,11 @@ export const overtimeStore = writable()
 export const replayStore = writable()
 
 //statevent stores
-export const statEventStore = writable({})
+export const statEventStore = writable({
+    main_target:{
+        name:"Bob"
+    }
+})
 export const statFeedStore = writable([])
 
 

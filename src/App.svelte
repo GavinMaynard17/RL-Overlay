@@ -27,7 +27,7 @@
   <Time />
 
   <!-- stat feed (non-player) -->
-  <!-- <StatFeed /> -->
+  <!-- <StatFeed playerName = "Chipper"/> -->
 
   <!-- player list -->
   <Players />

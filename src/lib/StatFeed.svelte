@@ -4,9 +4,9 @@
 
   const events = writable([]);
   export let playerName;
-
+  
   $: handleStatFeed($statEventStore);
-  // $: console.log("current stat is", $statEventStore);
+  $: console.log("current stat is", $statEventStore);
 
   function removeStatFeedEvent(id) {
     let stat = $events.find((event) => event.id === id);
@@ -48,10 +48,13 @@
 </script>
 
 {#each $events.sort((a, b) => a.time - b.time) as event (event.id)}
-  <!-- {#if event?.main_target.name == playerName} -->
-  {console.log(event?.main_target.name)}
-  <div>{event?.event_name} - {event?.main_target.name}</div>
-  <!-- {/if} -->
+  {#if event.main_target.name == playerName && event.main_target}
+  <div>
+    {event?.event_name} 
+    - 
+    {event?.main_target.name}
+  </div>
+  {/if}
 {/each}
 
 <style>
