@@ -11,8 +11,9 @@ export const replayStore = writable()
 
 //statevent stores
 export const statEventStore = writable({
-    main_target:{
-        name:"Bob"
+    event_name: "",
+    main_target: {
+        name: "Bob"
     }
 })
 export const statFeedStore = writable([])
