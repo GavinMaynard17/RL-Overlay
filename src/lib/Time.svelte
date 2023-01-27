@@ -17,9 +17,9 @@
   <div class="time">
     <!-- add more things for if time is > 10 minutes, will need to move things around -->
     {#if isOT}
-      <p>+ {min} : {sec}</p>
+      <p>+ {min}:{sec}</p>
     {:else}
-      <p>{min} : {sec}</p>
+      <p>{min}:{sec}</p>
     {/if}
   </div>
 </div>
@@ -27,9 +27,16 @@
 <style>
   .time {
     position: relative;
-    color: black;
+    color: white;
+    text-align: center;
+    
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: white;
+  }
+  
+  .clock {
+    background-color: black;
+    width: 80px;
+    height: 30px;
   }
 </style>

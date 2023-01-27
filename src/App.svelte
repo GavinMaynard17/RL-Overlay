@@ -19,13 +19,14 @@
   ></script>
 </head>
 
-<body>
+<body class="overlay">
   <!-- score -->
   <Score />
 
   <!-- clock -->
-  <Time />
-
+  <div class="clock">
+    <Time />
+  </div>
   <!-- stat feed (non-player) -->
   <!-- <StatFeed playerName = "Chipper"/> -->
 
@@ -41,3 +42,15 @@
   <!-- replay indicator -->
   <Replay />
 </body>
+
+<style>
+  .overlay{
+    aspect-ratio: 16 / 9;
+  }
+
+  .clock{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
+</style>
