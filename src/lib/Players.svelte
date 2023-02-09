@@ -15,7 +15,12 @@
         {#if player.team == 0}
           <li>{player.name}</li>
           <li><StatFeed playerName={player.name} /></li>
-          <li>{player.boost}</li>
+          <li>Boost: {player.boost}</li>
+          <li>Score: {player.score}</li>
+          <li>Goals: {player.goals}</li>
+          <li>Assists: {player.assists}</li>
+          <li>Saves: {player.saves}</li>
+          <li>Demos: {player.demos}</li>
           <hr />
         {/if}
       {/each}
@@ -27,7 +32,12 @@
         {#if player.team == 1}
           <li>{player.name}</li>
           <li><StatFeed playerName={player.name} /></li>
-          <li>{player.boost}</li>
+          <li>Boost: {player.boost}</li>
+          <li>Score: {player.score}</li>
+          <li>Goals: {player.goals}</li>
+          <li>Assists: {player.assists}</li>
+          <li>Saves: {player.saves}</li>
+          <li>Demos: {player.demos}</li>
           <hr />
         {/if}
       {/each}

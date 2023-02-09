@@ -10,7 +10,7 @@
   .boost {
     position: relative;
     height: 50px;
-    background-color: white;
+    background-color: rgb(255, 0, 0);
   }
   .bg {
     width: 300px;

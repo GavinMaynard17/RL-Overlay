@@ -23,3 +23,6 @@ socket.onmessage = ({ data }) => {
 
   socketMessageStore.set(parsed);
 };
+
+//change "socket" to "gameSocket"?
+//create "controllerSocket"?

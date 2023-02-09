@@ -10,16 +10,13 @@
   export let playerName;
 
   $: handleStatFeed($statEventStore, isKeyStat);
-  $: console.log("current stat is", $statEventStore);
 
   function removeStatFeedEvent(id) {
     let stat = $events.find((event) => event.id === id);
-    console.log("removing", stat);
     $events = $events.filter((event) => event.id !== id);
   } //removes event from events
 
   function startDisappearing(id) {
-    console.log($events);
     $events = [
       ...$events.filter((event) => event.id !== id),
       {

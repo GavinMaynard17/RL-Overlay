@@ -9,16 +9,16 @@ export const targetPlayerStore = writable({
     saves: null,
     shots: null,
     demos: null,
-    boost: null,
+    boost: null
 })
 export const timeStore = writable(300)
 export const blueTeamStore = writable({
     name: null,
-    score: null,
+    score: null
 })
 export const orangeTeamStore = writable({
     name: null,
-    score: null,
+    score: null
 })
 export const playersStore = writable([])
 export const overtimeStore = writable(false)
@@ -30,6 +30,18 @@ export const statEventStore = writable({
     main_target: {
         name: null
     }
+})
+
+export const lastUpdateStore = writable()
+
+export const endStatStore = writable()
+export const endBlueStore = writable({
+    name: null,
+    score: null
+})
+export const endOrangeStore = writable({
+    name: null,
+    score: null
 })
 
 

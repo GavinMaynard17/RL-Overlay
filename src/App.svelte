@@ -1,56 +1,29 @@
 <script>
-  import Time from "./lib/Time.svelte";
-  import Players from "./lib/Players.svelte";
-  import Spectating from "./lib/Spectating.svelte";
-  import Score from "./lib/Score.svelte";
-  import OverTime from "./lib/OverTime.svelte";
-  import Replay from "./lib/Replay.svelte";
-  import StatFeed from "./lib/StatFeed.svelte";
+  import url from "./url";
+  import Overlay from "./visuals/Overlay.svelte";
+  import EndGameStat from "./visuals/EndGameStat.svelte";
   import { processor } from "./lib/processor";
   import { socketMessageStore } from "./lib/socket";
+  import { playersStore } from "./lib/stores";
 
   $: console.log($socketMessageStore);
   $: processor($socketMessageStore);
 </script>
 
-<head>
-  <script
-    src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-  ></script>
-</head>
+<body>
+  {#if $url.hash === "" || $url.hash === "#/"}
+    <a href="#/overlay">Overlay</a>
+    <a href="#/endgame">End Game Stats</a>
+  {:else if $url.hash === "#/overlay"}
+    <Overlay />
+  {:else if $url.hash === "#/endgame"}
+    <EndGameStat
+    /><!--  check when game removes/updates regular info, might not need special stores  -->
+  {:else}
+    <h1>404</h1>
+  {/if}
 
-<body class="overlay">
-  <!-- score -->
-  <Score />
-
-  <!-- clock -->
-  <div class="clock">
-    <Time />
-  </div>
-  <!-- stat feed (non-player) -->
-  <!-- <StatFeed playerName = "Chipper"/> -->
-
-  <!-- player list -->
-  <Players />
-
-  <!-- Spectating player -->
-  <Spectating />
-
-  <!-- overtime indicator -->
-  <OverTime />
-
-  <!-- replay indicator -->
-  <Replay />
+  <!-- in the future, add pregame stats -->
+  <!-- for webcam/talking screen, should probably make its own app -->
+  <!-- for OM, on launch, can start up the webcam/talking app? -->
 </body>
-
-<style>
-  .overlay{
-    aspect-ratio: 16 / 9;
-  }
-
-  .clock{
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-  }
-</style>
